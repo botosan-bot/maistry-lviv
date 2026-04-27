@@ -1,79 +1,103 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Майстри Львів</title>
+
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:Arial,sans-serif;
-background:#f8f9fa;
-text-align:center;
+background:#f5f7fa;
 color:#222;
 }
+
 header{
-background:#ffffff;
-padding:30px;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-h1{
-margin:0;
-font-size:34px;
-}
-.phone{
-font-size:24px;
-color:green;
-margin-top:10px;
-}
-.wrap{
-padding:30px;
-}
-.btn{
-display:block;
-width:90%;
-max-width:350px;
-margin:15px auto;
-padding:18px;
-font-size:22px;
-border:none;
-border-radius:14px;
-background:#ffffff;
-box-shadow:0 4px 10px rgba(0,0,0,.08);
-cursor:pointer;
-}
-.call{
-background:green;
+background:linear-gradient(135deg,#0d6efd,#0a58ca);
 color:white;
+padding:35px 20px;
+text-align:center;
 }
-footer{
-margin-top:40px;
+
+header h1{
+font-size:34px;
+margin-bottom:10px;
+}
+
+header p{
+font-size:18px;
+opacity:.95;
+}
+
+.wrap{
+padding:25px;
+max-width:500px;
+margin:auto;
+}
+
+.card{
+background:white;
 padding:20px;
+margin:14px 0;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+font-size:24px;
+text-align:center;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.call{
+background:#198754;
+color:white;
+font-weight:bold;
+}
+
+.telegram{
+background:#229ED9;
+color:white;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:30px;
 color:#666;
+font-size:14px;
 }
 </style>
 </head>
+
 <body>
 
 <header>
 <h1>Майстри Львів</h1>
-<div class="phone">📞 +380687972331</div>
+<p>Терміновий виклик майстра у Львові</p>
+<p>Працюємо щодня 08:00–22:00</p>
 </header>
 
 <div class="wrap">
 
-<button class="btn">🔧 Сантехнік</button>
-<button class="btn">⚡ Електрик</button>
-<button class="btn">🚚 Перевезення</button>
-<button class="btn">🛋 Чистка диванів</button>
+<div class="card">🔧 Сантехнік</div>
+<div class="card">⚡ Електрик</div>
+<div class="card">🚚 Перевезення</div>
+<div class="card">🛋 Хімчистка диванів</div>
 
 <a href="tel:+380687972331">
-<button class="btn call">📞 Подзвонити</button>
+<div class="card call">📞 Подзвонити зараз</div>
 </a>
 
 <a href="https://t.me/username_bot">
-<button class="btn">🤖 Telegram бот</button>
+<div class="card telegram">🤖 Написати в Telegram</div>
 </a>
 
 </div>

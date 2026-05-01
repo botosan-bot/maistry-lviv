@@ -6,21 +6,24 @@
 <title>MAYSTER PRO</title>
 
 <style>
-тіло{
+body{
+    margin:0;
+    font-family:Arial;
     background: radial-gradient(circle at top, #111, #000);
+    color:white;
 }
 
-.контейнер{
+.container{
     padding:30px 20px;
     max-width:500px;
     margin:auto;
 }
 
-h1, h2 {
+h1, h2{
     color:gold;
 }
 
-.кнопка{
+.btn{
     display:block;
     margin:15px 0;
     padding:18px;
@@ -29,41 +32,36 @@ h1, h2 {
     text-decoration:none;
     font-weight:bold;
     font-size:16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    transition:0.2s;
-}
-.кнопка:active{
-    transform:scale(0.97);
 }
 
-.телеграма{
+.telegram{
     background: linear-gradient(135deg, #229ED9, #1b7fb5);
     color:white;
 }
 
-.WhatsApp{
+.whatsapp{
     background: linear-gradient(135deg, #25D366, #1da851);
     color:white;
 }
-.кнопка-форми{
-    background: linear-gradient(135deg, gold, #ffcc00);
-    color:black;
-    border:none;
-    padding:14px;
-    border-radius:12px;
-    font-weight:bold;
-    box-shadow: 0 4px 10px rgba(255,215,0,0.3);
-}
-    
-вхід, текстове поле{
+
+input, textarea{
     width:100%;
     padding:14px;
     margin:10px 0;
     border-radius:10px;
-    border:1px solid #333;
+    border:none;
     background:#111;
     color:white;
-    }
+}
+
+.form-btn{
+    background: linear-gradient(135deg, gold, #ffcc00);
+    color:black;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-weight:bold;
+}
 </style>
 </head>
 

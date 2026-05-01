@@ -7,85 +7,91 @@
 
 <style>
 body{
-    margin:0;
-    font-family:Arial;
-    background: radial-gradient(circle at top, #111, #000);
-    color:white;
+    margin:0;
+    font-family:Arial;
+    background:#000;
+    color:white;
 }
 
 .container{
-    padding:30px 20px;
-    max-width:500px;
-    margin:auto;
+    padding:25px 15px;
+    max-width:500px;
+    margin:auto;
 }
 
-h1, h2{
-    color:gold;
+h1{
+    font-size:28px;
+    color:gold;
+}
+
+h2{
+    color:gold;
+    margin-top:40px;
+}
+
+.sub{
+    color:#ccc;
+    margin-bottom:20px;
 }
 
 .btn{
-    display:block;
-    margin:15px 0;
-    padding:18px;
-    text-align:center;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:16px;
+    display:block;
+    margin:10px 0;
+    padding:16px;
+    text-align:center;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 .telegram{
-    background: linear-gradient(135deg, #229ED9, #1b7fb5);
-    color:white;
-}
-.whatsapp{
-    background: linear-gradient(135deg, #25D366, #1da851);
-    color:white;
-    box-shadow:0 5px 20px rgba(37,211,102,0.4);
+    background:#229ED9;
 }
 
-.btn:hover{
-    transform:scale(1.03);
+.btn-gold{
+    background:gold;
+    color:black;
 }
 
-input, textarea{
-    width:100%;
-    padding:14px;
-    margin:10px 0;
-    border-radius:10px;
-    border:none;
-    background:#111;
-    color:white;
+.card{
+    background:#111;
+    padding:15px;
+    border-radius:12px;
+    margin:10px 0;
 }
 
-.form-btn{
-    background: linear-gradient(135deg, gold, #ffcc00);
-    color:black;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    font-weight:bold;
+input, textarea, select{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border-radius:10px;
+    border:none;
+    background:#111;
+    color:white;
 }
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:gold;
+    font-weight:bold;
+}
+
 .wa-fix{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:26px;
-    text-decoration:none;
-    box-shadow:0 5px 20px rgba(0,0,0,0.5);
-    z-index:999;
-}
-
-.wa-fix:hover{
-    transform:scale(1.1);
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    text-decoration:none;
 }
 </style>
 </head>
@@ -95,37 +101,93 @@ input, textarea{
 <div class="container">
 
 <h1>Ремонт квартир у Львові під ключ</h1>
-<p>Швидко • Якісно • Чесна ціна</p>
+<p class="sub">Швидко • Якісно • Чесна ціна</p>
 
-<!-- КНОПКИ -->
 <a class="btn telegram" href="https://t.me/mikola_1217">
 Написати в Telegram
 </a>
 
-<a class="btn whatsapp" href="https://wa.me/380680238071">
-Написати в WhatsApp
-</a>
+<!-- ПОСЛУГИ -->
+<h2>Наші послуги</h2>
+
+<div class="card">🔧 Косметичний ремонт</div>
+<div class="card">🏗 Капітальний ремонт</div>
+<div class="card">🚿 Сантехніка</div>
+<div class="card">⚡ Електрика</div>
+<div class="card">🎨 Шпаклівка і фарбування</div>
+
+<!-- ЧОМУ МИ -->
+<h2>Чому обирають нас</h2>
+
+<div class="card">✅ Досвід 10+ років</div>
+<div class="card">🚗 Безкоштовний виїзд</div>
+<div class="card">🛡 Гарантія якості</div>
 
 <!-- ФОРМА -->
 <h2>Залишити заявку</h2>
 
-<form action="https://formspree.io/f/ТУТ_ID" method="POST">
+<form id="leadForm">
 
 <input type="text" name="name" placeholder="Ваше ім'я" required>
 
-<input type="text" name="phone" placeholder="Ваш номер (WhatsApp/Telegram)">
+<input type="text" name="phone" placeholder="Телефон / Telegram">
+
+<select name="service">
+<option>Оберіть послугу</option>
+<option>Косметичний ремонт</option>
+<option>Капітальний ремонт</option>
+<option>Сантехніка</option>
+<option>Електрика</option>
+</select>
+
+<input type="text" name="district" placeholder="Район (Сихів, Франківський...)">
 
 <textarea name="message" placeholder="Що потрібно зробити"></textarea>
 
-<button class="btn form-btn">Отримати кошторис</button>
+<button>Отримати кошторис</button>
 
 </form>
 
 </div>
 
-<a href="https://wa.me/380680238071" class="wa-fix">
-📲
-</a>
+<a href="https://wa.me/380680238071" class="wa-fix">📲</a>
+
+<!-- TELEGRAM SCRIPT -->
+<script>
+document.getElementById("leadForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.querySelector('[name="name"]').value;
+    let phone = document.querySelector('[name="phone"]').value;
+    let service = document.querySelector('[name="service"]').value;
+    let district = document.querySelector('[name="district"]').value;
+    let message = document.querySelector('[name="message"]').value;
+
+    let text = `📥 Нова заявка
+👤 ${name}
+📞 ${phone}
+🛠 ${service}
+📍 ${district}
+📝 ${message}`;
+
+    let token = "ТУТ_TOKEN";
+    let chat_id = "ТУТ_CHAT_ID";
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            chat_id: chat_id,
+            text: text
+        })
+    });
+
+    let wa = `https://wa.me/380680238071?text=${encodeURIComponent(text)}`;
+    window.open(wa, "_blank");
+
+    alert("✅ Заявка відправлена");
+});
+</script>
 
 </body>
-</html>
+  </html>

@@ -7,64 +7,85 @@
 
 <style>
 body{
-    margin:0;
-    font-family:Arial;
-    background: radial-gradient(circle at top, #111, #000);
-    color:white;
+    margin:0;
+    font-family:Arial;
+    background: radial-gradient(circle at top, #111, #000);
+    color:white;
 }
 
 .container{
-    padding:30px 20px;
-    max-width:500px;
-    margin:auto;
+    padding:30px 20px;
+    max-width:500px;
+    margin:auto;
 }
 
 h1, h2{
-    color:gold;
+    color:gold;
 }
 
 .btn{
-    display:block;
-    margin:15px 0;
-    padding:18px;
-    text-align:center;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:16px;
+    display:block;
+    margin:15px 0;
+    padding:18px;
+    text-align:center;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:16px;
 }
 
 .telegram{
-    background: linear-gradient(135deg, #229ED9, #1b7fb5);
-    color:white;
+    background: linear-gradient(135deg, #229ED9, #1b7fb5);
+    color:white;
 }
 .whatsapp{
-    background: linear-gradient(135deg, #25D366, #1da851);
-    color:white;
-    box-shadow:0 5px 20px rgba(37,211,102,0.4);
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color:white;
+    box-shadow:0 5px 20px rgba(37,211,102,0.4);
 }
 
 .btn:hover{
-    transform:scale(1.03);
+    transform:scale(1.03);
 }
 
 input, textarea{
-    width:100%;
-    padding:14px;
-    margin:10px 0;
-    border-radius:10px;
-    border:none;
-    background:#111;
-    color:white;
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:none;
+    background:#111;
+    color:white;
 }
 
 .form-btn{
-    background: linear-gradient(135deg, gold, #ffcc00);
-    color:black;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    font-weight:bold;
+    background: linear-gradient(135deg, gold, #ffcc00);
+    color:black;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-weight:bold;
+}
+.wa-fix{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    text-decoration:none;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+    z-index:999;
+}
+
+.wa-fix:hover{
+    transform:scale(1.1);
 }
 </style>
 </head>
@@ -101,6 +122,10 @@ input, textarea{
 </form>
 
 </div>
+
+<a href="https://wa.me/380680238071" class="wa-fix">
+💬
+</a>
 
 </body>
 </html>

@@ -38,7 +38,15 @@ h1, h2{
     background: linear-gradient(135deg, #229ED9, #1b7fb5);
     color:white;
 }
+.whatsapp{
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color:white;
+    box-shadow:0 5px 20px rgba(37,211,102,0.4);
+}
 
+.whatsapp:hover{
+    transform:scale(1.03);
+}
 .whatsapp{
     background: linear-gradient(135deg, #25D366, #1da851);
     color:white;

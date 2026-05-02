@@ -171,9 +171,9 @@ document.getElementById("leadForm").addEventListener("submit", function(e){
 📝 ${message}`;
 
     let token = "8748878682:AAEKWiTkB7oxvQU88sG5TXM5-cxFff5_1pM";
-    let chat_id = "8748878682";
+    let chat_id = "";
 
-    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    fetch(`https://api.telegram.org/bot8748878682:AAEKWiTkB7oxvQU88sG5TXM5-cxFff5_1pM/getUpdates`, {
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify({

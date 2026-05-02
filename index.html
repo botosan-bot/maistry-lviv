@@ -170,17 +170,19 @@ document.getElementById("leadForm").addEventListener("submit", function(e){
 📍 ${district}
 📝 ${message}`;
 
-    let token = "8748878682:AAEDTQnGrJ0IpSzp5lSsHw2gjxBmEovPeAY";
-    let chat_id = "";
+    let token = "8748878682:AAG6Zj_QUTYMmUAPLSD0HCoxUNWEsCoatX8";
+let chat_id = "ТУТ_CHAT_ID";
 
-    fetch(`https://api.telegram.org/bot.../getUpdates`, {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-            chat_id: chat_id,
-            text: text
-        })
-    });
+fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        chat_id: chat_id,
+        text: text
+    })
+});
 
     let wa = `https://wa.me/380680238071?text=${encodeURIComponent(text)}`;
     window.open(wa, "_blank");

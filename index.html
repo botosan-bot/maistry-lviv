@@ -48,12 +48,12 @@ button{width:100%;padding:14px;border:none;border-radius:10px;background:gold;fo
 </div>
 
 <script>
-document.getElementById("form").addEventListener("submit", function(e){
+document.getElementById("form").addEventListener("submit", async function(e){
 e.preventDefault();
 
 let form = e.target;
 
-fetch("/.netlify/functions/send", {
+let res = await fetch("/.netlify/functions/send", {
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
@@ -65,8 +65,12 @@ message: form.message.value
 })
 });
 
+if(res.ok){
 alert("✅ Заявка відправлена");
 form.reset();
+}else{
+alert("❌ Помилка відправки");
+}
 });
 </script>
 

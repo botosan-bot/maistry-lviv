@@ -173,14 +173,17 @@ document.getElementById("leadForm").addEventListener("submit", function(e){
     let token = "8748878682";
 let chat_id = "7461874774";
 
-fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+fetch("/api/send", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
     body: JSON.stringify({
-        chat_id: chat_id,
-        text: text
+        name: name,
+        phone: phone,
+        service: service,
+        district: district,
+        message: message
     })
 });
 

@@ -6,93 +6,13 @@
 <title>MAYSTER PRO</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:#000;
-    color:white;
-}
-
-.container{
-    padding:25px 15px;
-    max-width:500px;
-    margin:auto;
-}
-
-h1{
-    font-size:28px;
-    color:gold;
-}
-
-h2{
-    color:gold;
-    margin-top:40px;
-}
-
-.sub{
-    color:#ccc;
-    margin-bottom:20px;
-}
-
-.btn{
-    display:block;
-    margin:10px 0;
-    padding:16px;
-    text-align:center;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.telegram{
-    background:#229ED9;
-}
-
-.btn-gold{
-    background:gold;
-    color:black;
-}
-
-.card{
-    background:#111;
-    padding:15px;
-    border-radius:12px;
-    margin:10px 0;
-}
-
-input, textarea, select{
-    width:100%;
-    padding:14px;
-    margin:8px 0;
-    border-radius:10px;
-    border:none;
-    background:#111;
-    color:white;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    background:gold;
-    font-weight:bold;
-}
-
-.wa-fix{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:26px;
-    text-decoration:none;
-}
+body{margin:0;font-family:Arial;background:#000;color:#fff;}
+.container{max-width:500px;margin:auto;padding:20px;}
+h1{color:gold;}
+h2{color:gold;margin-top:30px;}
+.card{background:#111;padding:15px;border-radius:10px;margin:10px 0;}
+input,textarea,select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;background:#111;color:#fff;}
+button{width:100%;padding:14px;border:none;border-radius:10px;background:gold;font-weight:bold;}
 </style>
 </head>
 
@@ -101,37 +21,18 @@ button{
 <div class="container">
 
 <h1>Ремонт квартир у Львові під ключ</h1>
-<p class="sub">Швидко • Якісно • Чесна ціна</p>
 
-<a class="btn telegram" href="https://t.me/mayster_lviv_2026_bot">
-Написати в Telegram
-</a>
+<h2>Послуги</h2>
+<div class="card">Косметичний ремонт</div>
+<div class="card">Капітальний ремонт</div>
+<div class="card">Сантехніка</div>
+<div class="card">Електрика</div>
 
-<!-- ПОСЛУГИ -->
-<h2>Наші послуги</h2>
-
-<div class="card">🔧 Косметичний ремонт</div>
-<div class="card">🏗 Капітальний ремонт</div>
-<div class="card">🚿 Сантехніка</div>
-<div class="card">⚡ Електрика</div>
-<div class="card">🎨 Шпаклівка і фарбування</div>
-
-<!-- ЧОМУ МИ -->
-<h2>Чому обирають нас</h2>
-
-<div class="card">✅ Досвід 10+ років</div>
-<div class="card">🚗 Безкоштовний виїзд</div>
-<div class="card">🛡 Гарантія якості</div>
-
-<!-- ФОРМА -->
 <h2>Залишити заявку</h2>
 
-<form id="leadForm">
-
-<input type="text" name="name" placeholder="Ваше ім'я" required>
-
-<input type="text" name="phone" placeholder="Телефон / Telegram">
-
+<form id="form">
+<input name="name" placeholder="Ім'я" required>
+<input name="phone" placeholder="Телефон / Telegram">
 <select name="service">
 <option>Оберіть послугу</option>
 <option>Косметичний ремонт</option>
@@ -139,60 +40,48 @@ button{
 <option>Сантехніка</option>
 <option>Електрика</option>
 </select>
-
-<input type="text" name="district" placeholder="Район (Сихів, Франківський...)">
-
+<input name="district" placeholder="Район">
 <textarea name="message" placeholder="Що потрібно зробити"></textarea>
-
 <button>Отримати кошторис</button>
-
 </form>
 
 </div>
 
-<a href="https://wa.me/380680238071" class="wa-fix">📲</a>
-
-<!-- TELEGRAM SCRIPT -->
 <script>
-document.getElementById("leadForm").addEventListener("submit", function(e){
-    e.preventDefault();
+document.getElementById("form").addEventListener("submit", function(e){
+e.preventDefault();
 
-    let name = document.querySelector('[name="name"]').value;
-    let phone = document.querySelector('[name="phone"]').value;
-    let service = document.querySelector('[name="service"]').value;
-    let district = document.querySelector('[name="district"]').value;
-    let message = document.querySelector('[name="message"]').value;
+let name = form.name.value;
+let phone = form.phone.value;
+let service = form.service.value;
+let district = form.district.value;
+let message = form.message.value;
 
-    let text = `📥 Нова заявка
+let text = `📥 Нова заявка
 👤 ${name}
 📞 ${phone}
 🛠 ${service}
 📍 ${district}
 📝 ${message}`;
 
-    let token = "8748878682";
+// 👉 ВСТАВ СВІЙ ТОКЕН СЮДИ
+let token = "ТУТ_ТВОЙ_ТОКЕН";
+
+// 👉 ТУТ ТВОЙ CHAT ID
 let chat_id = "7461874774";
 
-fetch("/api/send", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        name: name,
-        phone: phone,
-        service: service,
-        district: district,
-        message: message
-    })
+fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+chat_id:chat_id,
+text:text
+})
 });
 
-    let wa = `https://wa.me/380680238071?text=${encodeURIComponent(text)}`;
-    window.open(wa, "_blank");
-
-    alert("✅ Заявка відправлена");
+alert("Заявка відправлена");
 });
 </script>
 
 </body>
-  </html>
+</html>

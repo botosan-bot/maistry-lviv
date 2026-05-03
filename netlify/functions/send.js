@@ -8,12 +8,14 @@ exports.handler = async (event) => {
 📍 ${data.district}
 📝 ${data.message}`;
 
-  const TOKEN = "";
-const CHAT_ID = "7461874774";
+  const TOKEN = process.env.TG_TOKEN;
+  const CHAT_ID = process.env.TG_CHAT;
 
-  await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+  const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       chat_id: CHAT_ID,
       text: text

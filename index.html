@@ -51,35 +51,24 @@ button{width:100%;padding:14px;border:none;border-radius:10px;background:gold;fo
 document.getElementById("form").addEventListener("submit", function(e){
 e.preventDefault();
 
-let name = form.name.value;
-let phone = form.phone.value;
-let service = form.service.value;
-let district = form.district.value;
-let message = form.message.value;
+let form = e.target;
 
 let text = `📥 Нова заявка
-👤 ${name}
-📞 ${phone}
-🛠 ${service}
-📍 ${district}
-📝 ${message}`;
+👤 ${form.name.value}
+📞 ${form.phone.value}
+🛠 ${form.service.value}
+📍 ${form.district.value}
+📝 ${form.message.value}`;
 
-// 👉 ВСТАВ СВІЙ ТОКЕН СЮДИ
-let token = "8748878682:AAFbiylC-kAJ5jXLuY8j3t9UnxaiXV3RgvU";
-
-// 👉 ТУТ ТВОЙ CHAT ID
-let chat_id = "7461874774";
-
-fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+// ВАЖЛИВО: тут НЕМАЄ токена (це правильно)
+fetch("/api/send", {
 method:"POST",
 headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-chat_id:chat_id,
-text:text
-})
+body:JSON.stringify({text})
 });
 
-alert("Заявка відправлена");
+alert("✅ Заявка відправлена");
+form.reset();
 });
 </script>
 

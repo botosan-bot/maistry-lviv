@@ -53,18 +53,16 @@ e.preventDefault();
 
 let form = e.target;
 
-let text = `📥 Нова заявка
-👤 ${form.name.value}
-📞 ${form.phone.value}
-🛠 ${form.service.value}
-📍 ${form.district.value}
-📝 ${form.message.value}`;
-
-// ВАЖЛИВО: тут НЕМАЄ токена (це правильно)
-fetch("/api/send", {
+fetch("/.netlify/functions/send", {
 method:"POST",
 headers:{"Content-Type":"application/json"},
-body:JSON.stringify({text})
+body:JSON.stringify({
+name: form.name.value,
+phone: form.phone.value,
+service: form.service.value,
+district: form.district.value,
+message: form.message.value
+})
 });
 
 alert("✅ Заявка відправлена");

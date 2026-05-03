@@ -8,7 +8,7 @@ exports.handler = async (event) => {
 📍 ${data.district}
 📝 ${data.message}`;
 
-  const TOKEN = "8748878682:AAE1LJeREJKooMWyiEf--UaMcjeMtrD9_JE";
+  const TOKEN = "";
 const CHAT_ID = "7461874774";
 
   await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
